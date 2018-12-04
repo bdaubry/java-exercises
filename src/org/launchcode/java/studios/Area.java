@@ -7,12 +7,11 @@ public class Area {
 
 
     public static void main(String[] args) {
+
         double pi = 3.14159;
         double radius;
         double area;
-        Scanner input;
-
-        input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
         System.out.println("What is the radius of the circle?");
         radius = input.nextDouble();
