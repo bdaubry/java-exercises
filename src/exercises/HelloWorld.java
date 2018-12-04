@@ -2,7 +2,7 @@ package exercises;
 
 //import java.util.Scanner;
 
-public class Brian {
+public class HelloWorld {
     public static void main(String[] args){
 
         String name;
