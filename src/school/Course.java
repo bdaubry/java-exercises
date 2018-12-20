@@ -1,16 +1,16 @@
 package school;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Course {
 
     private String name;
-    private int nextCourseId = 1;
+    private static int nextCourseId = 1;
     private int courseNumber;
     private String department;
     private int creditHours;
     private final int courseId;
-    private ArrayList<Integer> studentRoster;
+    private HashMap<Integer, String> studentRoster;
 
     public Course(String name, int courseNumber, String department, int creditHours, int courseId){
         this.name = name;
@@ -27,6 +27,12 @@ public class Course {
         nextCourseId++;
         this.department = department;
         this.creditHours = creditHours;
+    }
+
+    public void addStudent(Student student){
+        String studentName = student.getName();
+        int studentId = student.getStudentId();
+        studentRoster.put(studentId, studentName);
     }
 
     public String getName() {
@@ -64,4 +70,9 @@ public class Course {
     public int getCourseId() {
         return courseId;
     }
+
+    public HashMap<Integer,String> getStudentRoster() {
+        return studentRoster;
+    }
+
 }
