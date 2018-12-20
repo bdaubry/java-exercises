@@ -10,7 +10,7 @@ public class Course {
     private String department;
     private int creditHours;
     private final int courseId;
-    private HashMap<Integer, String> studentRoster;
+    private HashMap<Integer, String> studentRoster = new HashMap<>();
 
     public Course(String name, int courseNumber, String department, int creditHours, int courseId){
         this.name = name;
