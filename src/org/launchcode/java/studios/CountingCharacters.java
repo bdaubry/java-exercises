@@ -11,19 +11,19 @@ public class CountingCharacters {
                 "suscipit metus, non lobortis massa. Vestibulum augue ex, dapibus ac suscipit vel, volutpat eget massa. " +
                 "Donec nec velit non ligula efficitur luctus.";
         char[] charsInStr = str.toCharArray();
-        HashMap<Character, Integer> charCounts = new HashMap<>();
+        HashMap<Character, Integer> charCount = new HashMap<>();
         // for every character in our character list we made
         for (char character : charsInStr){
             // if our hashmap contains that character as a key already
-            if (charCounts.containsKey(character)){
+            if (charCount.containsKey(character)){
                 // add 1 to the value of that key. I used put (it rewrites the value technically, but it works)
-                charCounts.put(character, charCounts.get(character) + 1);
+                charCount.put(character, charCount.get(character) + 1);
             } else {
                 // else we add the character to the hashmap and initialize it with a value of 1, because it was found the first time
-                charCounts.put(character, 1);
+                charCount.put(character, 1);
             }
         }
-        for (Map.Entry<Character, Integer> character : charCounts.entrySet()){
+        for (Map.Entry<Character, Integer> character : charCount.entrySet()){
             System.out.println(character.getKey() + ": " + character.getValue());
         }
     }
