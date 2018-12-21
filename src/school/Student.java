@@ -1,15 +1,12 @@
 package school;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Student {
     private static int nextStudentId;
     private String name;
     private final int studentId;
     private int numberOfCredits;
     private double gpa;
-    private HashMap<Integer, Double> grades = new HashMap<>();
+
 
     public Student(String name, int studentId, int numberOfCredits, double gpa){
         this.name = name;
@@ -28,21 +25,26 @@ public class Student {
     }
 
     public void addGrade(int courseCredits, double grade){
-
+        double qualityScore = grade * courseCredits;
+        double currentQualityScore = gpa * numberOfCredits;
         numberOfCredits += courseCredits;
-        grades.put(courseCredits, grade);
-        double qualityScoreKeeper = 0;
-        for (Map.Entry<Integer, Double> gradeScore : grades.entrySet()){
-            double score = gradeScore.getKey() * gradeScore.getValue();
-            qualityScoreKeeper += score;
-        }
-        double newGpa = qualityScoreKeeper/numberOfCredits;
-        setGpa(newGpa);
+        this.setGpa((qualityScore+currentQualityScore)/numberOfCredits);
     }
 
     public String getGradeLevel(){
         //TODO
+        String gradeLevel = "";
 
+        if(numberOfCredits >= 0 && numberOfCredits <30){
+            gradeLevel = "Freshman";
+        } else if(numberOfCredits >= 30 && numberOfCredits < 60){
+            gradeLevel = "Sophomore";
+        } else if(numberOfCredits >= 60 && numberOfCredits < 90){
+            gradeLevel = "Junior";
+        } else if(numberOfCredits >= 90){
+            gradeLevel = "Senior";
+        }
+        return gradeLevel;
     }
 
     public String getName(){
