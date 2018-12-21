@@ -3,24 +3,37 @@ package org.launchcode.java.studios.Restaurant;
 import java.util.Date;
 
 public class MenuItem {
+    private String name;
     private double price;
     private String description;
     private String category;
     private boolean isNew;
-    private Date dateAdded;
+    private final Date dateAdded;
 
-    public MenuItem(double price, String description, boolean isNew, Date dateAdded){
+    public MenuItem(String name, double price, String category, String description, boolean isNew, Date dateAdded){
+        this.name = name;
         this.price = price;
         this.description = description;
+        this.category = category;
         this.isNew = isNew;
         this.dateAdded = dateAdded;
     }
 
-    public MenuItem(double price, String description){
+    public MenuItem(String name, double price, String category, String description){
+        this.name = name;
         this.price = price;
         this.description = description;
+        this.category = category;
         this.isNew = true;
         this.dateAdded = new Date();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getPrice() {
@@ -59,7 +72,8 @@ public class MenuItem {
         return dateAdded;
     }
 
-    public void setDateAdded(Date dateAdded) {
-        this.dateAdded = dateAdded;
+    @Override
+    public String toString() {
+        return name + " | Price: " + price + " | Category: " + category + " \nDescription: " + description +"\n";
     }
 }
